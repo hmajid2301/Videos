@@ -1,14 +1,6 @@
 <script lang="ts">
 	import { Presentation, Slide, Code, Step, Media, Stack } from '@components'
-	import { signal } from '@motion'
-	import { cubicOut } from 'svelte/easing'
 	import Layout from './layout.svelte'
-
-	let circleX = signal(0)
-
-	async function animate() {
-		await circleX.to(0).to(300, { duration: 500, easing: cubicOut })
-	}
 </script>
 
 <Presentation>
@@ -24,7 +16,7 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div class="flex items-center justify-center">
+				<div data-id="circle-1" class="flex items-center justify-center">
 					<img width="800" src="nix-bird.jpg" alt="logo" />
 				</div>
 			</div>
@@ -33,10 +25,11 @@
 
 	<Slide animate>
 		<Layout>
-			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div>
-					<img width="400" src="nix-logo.svg" alt="logo" />
-				</div>
+			<div
+				data-id="circle-1"
+				class="flex h-full items-center justify-center gap-[100px]"
+			>
+				<img width="400" src="nix-logo.svg" alt="logo" />
 			</div>
 		</Layout>
 	</Slide>
@@ -373,6 +366,19 @@
 					<a href="https://search.nixos.org/packages">
 						nixpkgs: https://search.nixos.org/packages
 					</a>
+				</div>
+			</div>
+		</Layout>
+	</Slide>
+
+	<Slide animate>
+		<Layout>
+			<div class="flex h-full items-center justify-center gap-[100px]">
+				<div
+					data-id="circle-1"
+					class="w-[800px] h-[800px] rounded-full overflow-hidden flex items-center justify-center border-4 border-white"
+				>
+					<img src="logo.png" alt="logo" />
 				</div>
 			</div>
 		</Layout>

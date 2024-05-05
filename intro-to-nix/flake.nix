@@ -13,6 +13,7 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
+        nodeEnv = pkgs.callPackage ./default.nix {};
       in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
@@ -21,7 +22,11 @@
             vhs
             nodePackages_latest.pnpm
             nodePackages_latest.node2nix
+            nodeEnv.shell.nodeDependencies
           ];
+          shellHook = ''
+            export NODE_PATH={nodeEnv.shell.nodeDependencies}/lib/node_modules
+          '';
         };
       }
     );
