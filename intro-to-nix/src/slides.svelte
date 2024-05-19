@@ -15,18 +15,8 @@
 
 	<Slide animate>
 		<Layout>
-			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div data-id="circle-1" class="flex items-center justify-center">
-					<img width="800" src="nix-bird.jpg" alt="logo" />
-				</div>
-			</div>
-		</Layout>
-	</Slide>
-
-	<Slide animate>
-		<Layout>
 			<div
-				data-id="circle-1"
+				data-id="main-animate"
 				class="flex h-full items-center justify-center gap-[100px]"
 			>
 				<img width="400" src="nix-logo.svg" alt="logo" />
@@ -114,7 +104,7 @@
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div>
 					<div class="flex items-center justify-center">
-						<img width="400" src="nix-logo.svg" alt="logo" />
+						<img width="200" src="language.svg" alt="logo" />
 					</div>
 					<div class="mt-20 items-center justify-center flex-row">
 						<div class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]">
@@ -154,12 +144,12 @@
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div>
-					<div class="flex items-center justify-center">
-						<img width="400" src="nix-logo.svg" alt="logo" />
+					<div data-id="main-animate" class="flex items-center justify-center">
+						<img width="200" src="box.png" alt="logo" />
 					</div>
 					<div class="mt-20 items-center justify-center flex-row">
 						<div
-							data-id="circle-1"
+							data-id="main-animate"
 							class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
 						>
 							<p>Package Manager</p>
@@ -177,11 +167,11 @@
 
 	<Slide animate>
 		<Layout>
-			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div
-					data-id="circle-1"
-					class="min-w-96 mx-auto p-5 space-y-10 rounded-lg bg-[#1e1e2e] text-[#1e1e2e]"
-				></div>
+			<div
+				data-id="main-animate"
+				class="flex h-full items-center justify-center gap-[100px]"
+			>
+				<img width="200" src="install.svg" alt="logo" />
 			</div>
 		</Layout>
 	</Slide>
@@ -189,13 +179,16 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div
-					data-id="circle-1"
-					class="mx-auto p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
-				>
-					<a href="https://install.determinate.systems/">
-						install.determinate.systems
-					</a>
+				<div>
+					<div class="flex items-center justify-center">
+						<img width="200" src="install.svg" alt="logo" />
+					</div>
+
+					<div class="mx-auto p-5 space-y-10 rounded-lg bg-[#1e1e2e]">
+						<a href="https://install.determinate.systems/">
+							install.determinate.systems
+						</a>
+					</div>
 				</div>
 			</div>
 		</Layout>
@@ -204,7 +197,7 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div data-id="circle-1" class="min-w-96 mx-auto">
+				<div data-id="main-animate" class="min-w-96 mx-auto">
 					<Code lang="bash" class="rounded-lg">
 						{`nix-shell -p neovim`}
 					</Code>
@@ -326,7 +319,7 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div data-id="circle-1" class="mx-auto w-[800px]">
+				<div data-id="main-animate" class="mx-auto w-[800px]">
 					<Code lang="nix" lines="3|4-7" class="rounded-lg">
 						{`
                             { pkgs ? import <nixpkgs> {} }:
@@ -348,7 +341,7 @@
 	<Slide animate>
 		<Layout>
 			<div
-				data-id="circle-1"
+				data-id="main-animate"
 				class="flex h-full items-center justify-center gap-[100px]"
 			>
 				<Media autoplay class="w-full" src="nix-shell.mp4" type="video" />
@@ -360,7 +353,7 @@
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div
-					data-id="circle-1"
+					data-id="main-animate"
 					class="mx-auto p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
 				>
 					<a href="https://search.nixos.org/packages">
@@ -375,7 +368,7 @@
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div
-					data-id="circle-1"
+					data-id="main-animate"
 					class="w-[800px] h-[800px] rounded-full overflow-hidden flex items-center justify-center border-4 border-white"
 				>
 					<img src="logo.png" alt="logo" />
@@ -387,7 +380,7 @@
 	<Slide>
 		<Layout>
 			<div
-				data-id="circle-1"
+				data-id="main-animate"
 				class="flex h-full items-center justify-center gap-[100px]"
 			>
 				<h4 class="w-[800px] text-[64px] leading-[120%]">I use Nix btw!</h4>
