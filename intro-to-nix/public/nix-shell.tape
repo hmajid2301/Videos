@@ -13,14 +13,14 @@ Enter
 
 Type "nix-shell"
 
-Sleep 1000ms
+Sleep 2000ms
 
 Enter
 
-Sleep 1000ms
+Sleep 2000ms
 
 Type "lolcat --version"
 
 Enter
 
-Sleep 1000ms
+Sleep 2000ms
