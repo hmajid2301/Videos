@@ -1,0 +1,50 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../intro-to-nix",
+    "paths": {
+      "@config": [
+        "../intro-to-nix/src/config.ts"
+      ],
+      "@components": [
+        "../intro-to-nix/src/lib/components/index.ts"
+      ],
+      "@languages": [
+        "../intro-to-nix/src/lib/languages/index.ts"
+      ],
+      "@lib/*": [
+        "../intro-to-nix/src/lib/*"
+      ],
+      "@stores/*": [
+        "../intro-to-nix/src/lib/stores/*"
+      ],
+      "@styles/*": [
+        "../intro-to-nix/src/lib/styles/*"
+      ]
+    },
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    /**
+		 * Typecheck JS in `.svelte` and `.js` files by default.
+		 * Disable checkJs if you'd like to use dynamic types in JS.
+		 * Note that setting allowJs false does not prevent the use
+		 * of JS in `.svelte` files.
+		 */
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "../intro-to-nix/src/**/*.d.ts",
+    "../intro-to-nix/src/**/*.ts",
+    "../intro-to-nix/src/**/*.js",
+    "../intro-to-nix/src/**/*.svelte"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

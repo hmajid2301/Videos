@@ -445,11 +445,10 @@
 
 	<Slide>
 		<Layout>
-			<div
-				data-id="main-animate"
-				class="flex h-full items-center justify-center gap-[100px]"
-			>
-				<h4 class="w-[800px] text-[64px] leading-[120%]">I use Nix btw!</h4>
+			<div class="flex h-full items-center justify-center gap-[100px]">
+				<h4 class="w-[800px] text-[64px] leading-[120%] font-bold">
+					I use Nix btw!
+				</h4>
 			</div>
 		</Layout>
 	</Slide>
