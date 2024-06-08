@@ -297,7 +297,7 @@
 				>
 					<Code lang="nix" class="rounded-lg">
 						{`
-                           nvim /etc/nixos/configuration.nix
+                           sudo nvim /etc/nixos/configuration.nix
                         `}
 					</Code>
 				</div>
@@ -340,8 +340,15 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div data-id="main-animate" class="flex items-center justify-center">
-					<img width="200" src="install.svg" alt="logo" />
+				<div
+					data-id="main-animate"
+					class="mt-20 items-center justify-center flex-row"
+				>
+					<Code lang="nix" class="rounded-lg">
+						{`
+                           sudo nixos-rebuild switch
+                        `}
+					</Code>
 				</div>
 			</div>
 		</Layout>
@@ -350,13 +357,8 @@
 	<Slide animate>
 		<Layout>
 			<div class="flex h-full items-center justify-center gap-[100px]">
-				<div>
-					<div data-id="main-animate" class="flex items-center justify-center">
-						<img width="200" src="install.svg" alt="logo" />
-					</div>
-					<div class="mx-auto p-5 space-y-10 rounded-lg bg-[#1e1e2e]">
-						<h2>How to install?</h2>
-					</div>
+				<div data-id="main-animate" class="flex items-center justify-center">
+					<img width="200" src="install.svg" alt="logo" />
 				</div>
 			</div>
 		</Layout>
