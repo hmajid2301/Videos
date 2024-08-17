@@ -285,10 +285,7 @@
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div>
 					<div class="mt-20 items-center justify-center flex-row">
-						<div
-							data-id="main-animate"
-							class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
-						>
+						<div class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]">
 							<Code lang="bash" class="rounded-lg">
 								{`
                                 experimental-features = nix-command flakes
@@ -306,10 +303,7 @@
 			<div class="flex h-full items-center justify-center gap-[100px]">
 				<div>
 					<div class="mt-20 items-center justify-center flex-row">
-						<div
-							data-id="main-animate"
-							class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
-						>
+						<div class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]">
 							<Code lang="bash" class="rounded-lg">
 								{`
                                 nvim /etc/nixos/configuration.nix
@@ -362,11 +356,12 @@
 							data-id="main-animate"
 							class="p-5 space-y-10 rounded-lg bg-[#1e1e2e]"
 						>
-							<Code lang="nix" class="rounded-lg" lines="9">
+							<Code lang="nix" class="rounded-lg" lines="10">
 								{`
                                 { config, pkgs, ... }:
                                 {
                                   imports = [
+                                    # Include the results of the hardware scan.
                                     ./hardware-configuration.nix
                                   ];
 

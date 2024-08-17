@@ -55,7 +55,7 @@
 					</div>
 					<div class="mt-20 items-center justify-center flex">
 						<p class="w-1/2 p-5 rounded-lg bg-[#1e1e2e]">
-							Atuin is a tool which aims to replace how manage your shell
+							Atuin is a tool which aims to change how manage your shell
 							history.
 						</p>
 					</div>
@@ -97,7 +97,7 @@
 						<img width="400" src="atuin.png" alt="logo" />
 					</div>
 					<div class="flex items-center justify-center">
-						<img width="200" src="shell.svg" alt="logo" />
+						<img width="200" src="shells.svg" alt="logo" />
 					</div>
 					<div class="mt-20 items-center justify-center flex-row">
 						<div
@@ -126,7 +126,7 @@
 						<img width="400" src="atuin.png" alt="logo" />
 					</div>
 					<div class="flex items-center justify-center">
-						<img width="200" src="sync.svg" alt="logo" />
+						<img width="200" src="backup.svg" alt="logo" />
 					</div>
 					<div class="mt-20 items-center justify-center flex-row">
 						<div
