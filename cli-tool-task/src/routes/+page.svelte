@@ -2,7 +2,17 @@
 	import { Presentation, Slide, Code, Transition, Action } from '@animotion/core'
 	import { tween } from '@animotion/motion'
 
-	let code: Code
+	let taskUnit: Code
+	let gotestsum: Code
+	let install: Code
+	let taskfile: Code
+	let lint: Code
+	let homeTaskfile: Code
+	let otherTaskfile: Code
+	let taskDep: Code
+	let dangerousTask: Code
+	let watchTask: Code
+	let watchTaskCLI: Code
 </script>
 
 <Presentation
@@ -30,26 +40,24 @@
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="crying.jpeg" alt="logo" />
-		</Transition>
+		<img height="900" width="auto" src="crying.jpeg" alt="logo" />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Code
-			bind:this={code}
+			bind:this={taskUnit}
 			lang="shellscript"
 			theme="catppuccin-mocha"
 			code={`task tests:unit`}
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
 
-		<Action do={() => code.update`gotestsum --hide-summary=skipped -- -short ./internal/...`} />
+		<Action do={() => taskUnit.update`gotestsum --hide-summary=skipped -- -short ./internal/...`} />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Code
-			bind:this={code}
+			bind:this={gotestsum}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -69,20 +77,20 @@ tests:unit:
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Code
-			bind:this={code}
+			bind:this={install}
 			lang="shellscript"
 			theme="catppuccin-mocha"
 			code={`sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d`}
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
 
-		<Action do={() => code.update`nix-shell -p go-task`} />
-		<Action do={() => code.update`nvim Taskfile.yml`} />
+		<Action do={() => install.update`nix-shell -p go-task`} />
+		<Action do={() => install.update`nvim Taskfile.yml`} />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Code
-			bind:this={code}
+			bind:this={taskfile}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -99,73 +107,55 @@ tasks:
   lint:
     desc: Runs the linter.
     cmds:
-      - golangci-lint run {{.CLI_ARGS}} ./...
-
-  format:
-    desc: Runs the formatter.
-    cmds:
-      - goimports -local gitlab.com/hmajid2301/banterbus -w .
-      - golines -m 120 -w .
-
-  docker:build:
-    desc: Builds a Docker image using Nix.
-    cmds:
-      - nix build .#container
-
-  tests:
-    desc: Runs all the tests.
-    cmds:
-      - gotestsum`}
-			options={{ duration: 1000, stagger: 0.3, containerStyle: true }}
+      - golangci-lint run {{.CLI_ARGS}} ./...`}
+			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
-		<Action do={() => code.selectLines`4-9`} />
-		<Action do={() => code.selectLines`11-14`} />
-	</Slide>
-
-	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="yaml-file-engineer.jpg" alt="logo" />
-		</Transition>
-	</Slide>
-
-	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="install.svg" alt="logo" />
-		</Transition>
-	</Slide>
-
-	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="terminal.png" alt="logo" />
-		</Transition>
+		<Action do={() => taskfile.selectLines`4-10`} />
+		<Action do={() => taskfile.selectLines`11-15`} />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Code
-			bind:this={code}
+			bind:this={lint}
 			lang="shellscript"
 			theme="catppuccin-mocha"
-			code={`nvim $HOME/Taskfile.yml`}
+			code={`task lint -- --fix`}
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
-		<Action do={() => code.update`task -g lint`} />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="friendship_ended_with.jpg" alt="logo" />
-		</Transition>
+		<img height="900" width="auto" src="yaml-file-engineer.jpg" alt="logo" />
+	</Slide>
+
+	<Slide class="h-full place-content-center place-items-center">
+		<img height="900" width="auto" src="terminal.png" alt="logo" />
+	</Slide>
+
+	<Slide class="h-full place-content-center place-items-center">
+		<img height="900" width="auto" src="friendship_ended_with.jpg" alt="logo" />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
 		<h1>⛲Features</h1>
 	</Slide>
 
+	<Slide class="h-full place-content-center place-items-center">
+		<Code
+			bind:this={homeTaskfile}
+			lang="shellscript"
+			theme="catppuccin-mocha"
+			code={`nvim $HOME/Taskfile.yml`}
+			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
+		/>
+		<Action do={() => homeTaskfile.update`task -g lint`} />
+	</Slide>
+
 	<Slide class="m-y-10 h-full place-content-center place-items-center">
 		<h2>👷 Include other Taskfiles</h2>
 
 		<Code
-			bind:this={code}
+			bind:this={otherTaskfile}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -183,7 +173,7 @@ includes:
 		<h2>📦 Task Dependencies</h2>
 
 		<Code
-			bind:this={code}
+			bind:this={taskDep}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -197,8 +187,8 @@ tasks:
 
   assets:
     cmds:
-      - esbuild --bundle --minify css/index.css > public/bundle.css
-        sources:
+      - esbuild --bundle --minify js/index.js > public/bundle.js
+    sources:
       - src/js/**/*.js
     generates:
       - public/bundle.js
@@ -206,13 +196,15 @@ tasks:
 `}
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
+		<Action do={() => taskDep.selectLines`6`} />
+		<Action do={() => taskDep.selectLines`10-16`} />
 	</Slide>
 
 	<Slide class="m-y-10 h-full place-content-center place-items-center">
-		<h2>Dangerous Tasks</h2>
+		<h2>⚠️ Dangerous Tasks</h2>
 
 		<Code
-			bind:this={code}
+			bind:this={dangerousTask}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -227,10 +219,10 @@ tasks:
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
 		<Action
-			do={() => code.update`
+			do={() => dangerousTask.update`
 ❯ task dangerous
 
-task: "This is a dangerous command... Do you want to continue?" [y/N]`}
+"This is a dangerous command... Do you want to continue?" [y/N]`}
 		/>
 	</Slide>
 
@@ -238,7 +230,7 @@ task: "This is a dangerous command... Do you want to continue?" [y/N]`}
 		<h2>👀 Watch</h2>
 
 		<Code
-			bind:this={code}
+			bind:this={watchTask}
 			lang="yaml"
 			theme="catppuccin-mocha"
 			code={`
@@ -258,8 +250,17 @@ tasks:
 `}
 			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
 		/>
-		<Action do={() => code.update`❯ task bulid`} />
-		<Action do={() => code.update`❯ task --watch bulid`} />
+	</Slide>
+
+	<Slide class="m-y-10 h-full place-content-center place-items-center">
+		<Code
+			bind:this={watchTaskCLI}
+			lang="shellscript"
+			theme="catppuccin-mocha"
+			code={`❯ task build`}
+			options={{ duration: 1000, stagger: 0.3, containerStyle: false }}
+		/>
+		<Action do={() => watchTaskCLI.update`❯ task --watch build`} />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
@@ -269,9 +270,7 @@ tasks:
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
-		<Transition>
-			<img height="900" width="auto" src="makefile.jpg" alt="logo" />
-		</Transition>
+		<img height="900" width="auto" src="makefile.jpg" alt="logo" />
 	</Slide>
 
 	<Slide class="h-full place-content-center place-items-center">
